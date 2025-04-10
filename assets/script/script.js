@@ -228,3 +228,19 @@
 
 })();
 
+document.addEventListener("contextmenu", e => e.preventDefault()); // Disable right-click
+
+  document.addEventListener("keydown", function (e) {
+    // Prevent F12
+    if (e.code === "F12") {
+      e.preventDefault();
+    }
+
+    // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+    if (
+      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+      (e.ctrlKey && ["U", "S"].includes(e.key))
+    ) {
+      e.preventDefault();
+    }
+  });
